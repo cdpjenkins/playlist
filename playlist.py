@@ -1,7 +1,8 @@
-#from __future__ import with_statement 
 import os
 import glob
 import sys
+
+from functools import reduce
 
 def files(pattern):
     filenames = glob.glob(pattern)
@@ -34,7 +35,7 @@ class Playlist:
                 self.list.append(filename)
                 self.file_set.add(filename)
     def write_playlist(self):
-        for item in self.list: print item.replace("/c/", "C:/", 1)
+        for item in self.list: print(item.replace("/c/", "C:/", 1))
 
 if __name__=='__main__':
     playlist = Playlist(".")
